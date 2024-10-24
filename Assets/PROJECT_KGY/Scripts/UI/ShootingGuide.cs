@@ -25,7 +25,7 @@ namespace KGY
         private void LateUpdate()
         {
             //캐릭터 위치로 이동
-            transform.position = playerCharacter.transform.position + new Vector3(0, -0.9f, 0);
+            transform.position = playerCharacter.transform.position;
         }
     }
 }

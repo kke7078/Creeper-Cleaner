@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace KGY
 {
-    public class InputSystem : MonoBehaviour
+    public class KGYInputSystem : MonoBehaviour
     {
-        public static InputSystem Instance;
+        public static KGYInputSystem Instance;
 
         public CharacterController playerCharacter;
 
