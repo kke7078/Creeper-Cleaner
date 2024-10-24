@@ -660,8 +660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14ac777028412547bcd51b05fad60bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 726642147}
-  isShoot: 0
+  moveInput: {x: 0, y: 0}
+  isCleaning: 0
 --- !u!1 &398096743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,8 +1158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff5e21111130a45a3a10b5fe66f613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveInput: {x: 0, y: 0, z: 0}
-  moveSpeed: 5
 --- !u!143 &726642148
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3345,8 +3343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff5e21111130a45a3a10b5fe66f613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveInput: {x: 0, y: 0, z: 0}
-  moveSpeed: 5
 --- !u!114 &5440003468037559628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3359,6 +3355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce9040b7d104cb4893ef0ed3c6c3477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &5464242100512387399
 GameObject:
   m_ObjectHideFlags: 0

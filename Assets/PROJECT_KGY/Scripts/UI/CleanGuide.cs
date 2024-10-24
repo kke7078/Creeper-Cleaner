@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KGY 
 {
-    public class ShootingGuide : MonoBehaviour
+    public class CleanGuide : MonoBehaviour
     {
         public CharacterController playerCharacter;
         //public LayerMask groundLayer;

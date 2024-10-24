@@ -10,44 +10,46 @@ namespace KGY
 {
     public class CharacterController : MonoBehaviour
     {
-        public Vector3 moveInput;
-        public float moveSpeed;
-
-        protected float targetRotation;
-        protected float rotationVelocity;
-        protected float RotationSmoothTime = 0.12f;
-
-        private UnityEngine.CharacterController unityCharacterController;
+        private CharacterBase characterBase;
 
         private void Awake()
         {
-            unityCharacterController = GetComponent<UnityEngine.CharacterController>();
+            characterBase = GetComponent<CharacterBase>();
         }
+
+        private void Start()
+        {
+            KGYInputSystem.Singleton.onClean += Clean;
+        }
+
 
         private void Update()
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-
-            moveInput = new Vector3(horizontal, 0, vertical);
-            Move(moveInput);
+            Vector2 input = KGYInputSystem.Singleton.moveInput;
+            characterBase.Move(input);
         }
-
-        public void Move(Vector3 input)
+        private void Clean(bool isClean)
         {
-            float magnitude = input.magnitude;
-            if (magnitude <= 0.1f) return;
+            Debug.Log(isClean);
 
-            Vector3 inputDirection = moveInput.normalized;
+            if (isClean)
+            {
+                characterBase.moveSpeed = 3f;
 
-            targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
-            float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref rotationVelocity, RotationSmoothTime);
-
-            transform.rotation = Quaternion.Euler(0, rotation, 0);
-
-            Vector3 targetDirection = Quaternion.Euler(0, targetRotation, 0) * Vector3.forward;
-
-            unityCharacterController.Move(inputDirection * moveSpeed * Time.deltaTime);
+                //클릭하는 방향으로 캐릭터 회전
+                Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(mouseRay, out RaycastHit hitInfo, 1000f))
+                {
+                    Vector3 direction = hitInfo.point - transform.position;
+                    Quaternion targetRot = Quaternion.LookRotation(direction);
+                    targetRot.eulerAngles = new Vector3(0, targetRot.eulerAngles.y, 0);
+                    transform.rotation = targetRot;
+                }
+            }
+            else
+            {
+                characterBase.moveSpeed = 5f;
+            }
         }
     }
 }
