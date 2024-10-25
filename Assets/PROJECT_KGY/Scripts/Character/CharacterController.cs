@@ -10,6 +10,7 @@ namespace KGY
 {
     public class CharacterController : MonoBehaviour
     {
+        public GameObject waterSpray;
         private CharacterBase characterBase;
 
         private void Awake()
@@ -34,7 +35,8 @@ namespace KGY
 
             if (isClean)
             {
-                characterBase.moveSpeed = 3f;
+                characterBase.moveSpeed = 3f;   //캐릭터 이동속도 감소
+                waterSpray.SetActive(true);     //물뿌리기 이펙트 show
 
                 //클릭하는 방향으로 캐릭터 회전
                 Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -48,7 +50,8 @@ namespace KGY
             }
             else
             {
-                characterBase.moveSpeed = 5f;
+                characterBase.moveSpeed = 5f;   //캐릭터 이동속도 원복
+                waterSpray.SetActive(false);     //물뿌리기 이펙트 hide
             }
         }
     }
