@@ -29,26 +29,5 @@ namespace KGY
             }
 
         }
-
-
-        //private void LateUpdate()
-        //{
-        //    if (Input.GetMouseButtonDown(0))
-        //    { 
-        //        isShoot = true;
-        //        playerCharacter.moveSpeed = 3f;
-        //    }
-
-        //    if (Input.GetMouseButtonUp(0))
-        //    {
-        //        isShoot = false;
-        //        playerCharacter.moveSpeed = 5f;
-        //    }
-
-        //    if (Input.GetMouseButton(0))
-        //    {
-        //        
-        //    }
-        //}
     }
 }

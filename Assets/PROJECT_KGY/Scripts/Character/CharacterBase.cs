@@ -7,6 +7,8 @@ namespace KGY
     public class CharacterBase : MonoBehaviour
     {
         public bool IsMad => isMad;
+        
+        public GameObject waterSpray;
         public float moveSpeed;
 
         protected float speed = 0f;
@@ -34,12 +36,26 @@ namespace KGY
             
         }
 
-        public void Clean(bool isClean)
-        { 
-        
+        public virtual void Clean(bool isClean)
+        {
+            if (isClean)
+            {
+                moveSpeed = 3f;   //캐릭터 이동속도 감소
+                waterSpray.SetActive(true);     //물뿌리기 이펙트 show
+
+                characterAnimator.SetTrigger("CleanTrigger");
+                characterAnimator.SetBool("IsClean", true);
+            }
+            else
+            {
+                moveSpeed = 5f;   //캐릭터 이동속도 원복
+                waterSpray.SetActive(false);     //물뿌리기 이펙트 hide
+
+                characterAnimator.SetBool("IsClean", false);
+            }
         }
 
-        public void Move(Vector2 input)
+        public virtual void Move(Vector2 input)
         {
             float magnitude = input.magnitude;
             characterAnimator.SetFloat("Speed", magnitude);
