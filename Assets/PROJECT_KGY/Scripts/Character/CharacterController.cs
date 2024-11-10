@@ -10,7 +10,14 @@ namespace KGY
 {
     public class CharacterController : MonoBehaviour
     {
+        public bool IsCleaning
+        {
+            get { return isCleaning; }
+            set { isCleaning = value; }
+        }
+
         private CharacterBase characterBase;
+        private bool isCleaning;
 
         private void Awake()
         {
@@ -25,14 +32,9 @@ namespace KGY
         private void Update()
         {
             Vector2 input = KGYInputSystem.Singleton.moveInput;
-            characterBase.Move(input);
-        }
+            characterBase.Move(input, IsCleaning);
 
-        private void Clean(bool isClean)
-        {
-            characterBase.Clean(isClean);
-
-            if (isClean)
+            if (IsCleaning)
             {
                 //클릭하는 방향으로 캐릭터 회전
                 Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -44,10 +46,12 @@ namespace KGY
                     transform.rotation = targetRot;
                 }
             }
-            else
-            {
-                
-            }
+        }
+
+        private void Clean(bool isClean)
+        {
+            characterBase.Clean(isClean);
+            IsCleaning = isClean;
         }
     }
 }

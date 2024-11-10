@@ -18,7 +18,7 @@ namespace KGY
 
             moveInput = new Vector2(horizontal, vertical);
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 onClean?.Invoke(true);
             }

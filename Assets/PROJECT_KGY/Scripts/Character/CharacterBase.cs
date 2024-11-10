@@ -44,18 +44,20 @@ namespace KGY
                 waterSpray.SetActive(true);     //물뿌리기 이펙트 show
 
                 characterAnimator.SetTrigger("CleanTrigger");
-                characterAnimator.SetBool("IsClean", true);
+                characterAnimator.SetBool("IsCleaning", true);
+                characterAnimator.SetFloat("Cleaning", 1);
             }
             else
             {
                 moveSpeed = 5f;   //캐릭터 이동속도 원복
                 waterSpray.SetActive(false);     //물뿌리기 이펙트 hide
 
-                characterAnimator.SetBool("IsClean", false);
+                characterAnimator.SetBool("IsCleaning", false);
+                characterAnimator.SetFloat("Cleaning", 0);
             }
         }
 
-        public virtual void Move(Vector2 input)
+        public virtual void Move(Vector2 input, bool isClean)
         {
             float magnitude = input.magnitude;
             characterAnimator.SetFloat("Speed", magnitude);
