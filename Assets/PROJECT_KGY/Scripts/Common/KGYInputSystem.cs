@@ -10,6 +10,7 @@ namespace KGY
         public bool isClean;
 
         public System.Action<bool> onClean;
+        public System.Action onInteract;
 
         private void Update()
         {
@@ -28,6 +29,10 @@ namespace KGY
                 onClean?.Invoke(false);
             }
 
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                onInteract?.Invoke();
+            }
         }
     }
 }

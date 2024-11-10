@@ -27,6 +27,7 @@ namespace KGY
         private void Start()
         {
             KGYInputSystem.Singleton.onClean += Clean;
+            KGYInputSystem.Singleton.onInteract += Interact;
         }
 
         private void Update()
@@ -52,6 +53,14 @@ namespace KGY
         {
             characterBase.Clean(isClean);
             IsCleaning = isClean;
+        }
+
+        private void Interact()
+        {
+            var playerCharacter = characterBase as PlayerCharacter;
+            if (playerCharacter == null) return;
+
+            playerCharacter.Interact();
         }
     }
 }

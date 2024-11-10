@@ -21,7 +21,7 @@ namespace KGY
         private UnityEngine.CharacterController unityCharacterController;
         protected Animator characterAnimator;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             characterAnimator = GetComponent<Animator>();
             unityCharacterController = GetComponent<UnityEngine.CharacterController>();
