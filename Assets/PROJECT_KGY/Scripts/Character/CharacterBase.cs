@@ -45,14 +45,13 @@ namespace KGY
                 waterSpray.SetActive(true);     //물뿌리기 이펙트 show
                 cleanPoint.SetActive(true);     //타겟포인트 show
 
-
                 characterAnimator.SetTrigger("CleanTrigger");
                 characterAnimator.SetBool("IsCleaning", true);
                 characterAnimator.SetFloat("Cleaning", 1);
             }
             else
             {
-                moveSpeed = 5f;   //캐릭터 이동속도 원복
+                moveSpeed = 4f;   //캐릭터 이동속도 원복
                 waterSpray.SetActive(false);     //물뿌리기 이펙트 hide
                 cleanPoint.SetActive(false);     //타겟포인트 hide
 
