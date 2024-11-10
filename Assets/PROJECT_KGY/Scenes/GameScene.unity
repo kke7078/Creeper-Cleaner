@@ -1983,8 +1983,8 @@ GameObject:
   - component: {fileID: 1126621954}
   - component: {fileID: 1126621953}
   - component: {fileID: 1126621952}
-  - component: {fileID: 1126621955}
   - component: {fileID: 1126621956}
+  - component: {fileID: 1126621955}
   m_Layer: 0
   m_Name: CleanPoint
   m_TagString: Untagged

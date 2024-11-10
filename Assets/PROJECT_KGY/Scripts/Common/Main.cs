@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace KGY
 {
@@ -55,6 +56,7 @@ namespace KGY
                     newSceneController = sceneController.AddComponent<TitleScene>();
                     break;
                 case SceneType.GameScene:
+                    Debug.Log("111");
                     newSceneController = sceneController.AddComponent<GameScene>();
                     break;
             }
@@ -62,11 +64,18 @@ namespace KGY
             StartCoroutine(SceneLoadCoroutine(newSceneController));
         }
 
-        public IEnumerator SceneLoadCoroutine<T>(T newSceneController) where T : SceneBase
+        private IEnumerator SceneLoadCoroutine<T>(T newSceneController) where T : SceneBase
         {
             //Loading UI를 띄워놓자.
             LoadingUI loadingUI = UIManager.Show<LoadingUI>(UIList.LoadingUI);
             loadingUI.LoadingProgress = 0f;
+
+            //Empty Scene을 로드해서, 비어있는 씬을 하나 올려놓자.
+            AsyncOperation emptySceneLoad = SceneManager.LoadSceneAsync("Empty", LoadSceneMode.Additive);
+            while (!emptySceneLoad.isDone)
+            {
+                yield return null;
+            }
 
             //만약에 기존에 불러다놓은 Scene이 있다면?
             //기존 Scene의 SceneEnd를 호출하고 제거한다.

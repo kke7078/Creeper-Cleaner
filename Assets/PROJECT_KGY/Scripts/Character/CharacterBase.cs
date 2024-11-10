@@ -9,6 +9,7 @@ namespace KGY
         public bool IsMad => isMad;
         
         public GameObject waterSpray;
+        public GameObject cleanPoint;
         public float moveSpeed;
 
         protected float speed = 0f;
@@ -42,6 +43,8 @@ namespace KGY
             {
                 moveSpeed = 3f;   //캐릭터 이동속도 감소
                 waterSpray.SetActive(true);     //물뿌리기 이펙트 show
+                cleanPoint.SetActive(true);     //타겟포인트 show
+
 
                 characterAnimator.SetTrigger("CleanTrigger");
                 characterAnimator.SetBool("IsCleaning", true);
@@ -51,13 +54,14 @@ namespace KGY
             {
                 moveSpeed = 5f;   //캐릭터 이동속도 원복
                 waterSpray.SetActive(false);     //물뿌리기 이펙트 hide
+                cleanPoint.SetActive(false);     //타겟포인트 hide
 
                 characterAnimator.SetBool("IsCleaning", false);
                 characterAnimator.SetFloat("Cleaning", 0);
             }
         }
 
-        public virtual void Move(Vector2 input, bool isClean)
+        public virtual void Move(Vector2 input)
         {
             float magnitude = input.magnitude;
             characterAnimator.SetFloat("Speed", magnitude);

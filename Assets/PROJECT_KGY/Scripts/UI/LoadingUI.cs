@@ -5,9 +5,11 @@ using TMPro;
 
 namespace KGY
 {
-    // <summary> progress는 항상 0 ~ 1 사이 값으로 넣을 것 </summary>
     public class LoadingUI : UIBase
     {
+        public static LoadingUI Instance => UIManager.Singleton.GetUI<LoadingUI>(UIList.LoadingUI);
+
+        // <summary> progress는 항상 0 ~ 1 사이 값으로 넣을 것 </summary>
         public float LoadingProgress
         {
             set

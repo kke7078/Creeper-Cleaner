@@ -32,7 +32,7 @@ namespace KGY
         private void Update()
         {
             Vector2 input = KGYInputSystem.Singleton.moveInput;
-            characterBase.Move(input, IsCleaning);
+            characterBase.Move(input);
 
             if (IsCleaning)
             {

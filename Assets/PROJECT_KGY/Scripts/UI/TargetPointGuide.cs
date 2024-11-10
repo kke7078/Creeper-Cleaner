@@ -9,9 +9,7 @@ namespace KGY
 
         private void OnTriggerStay(Collider other)
         {
-            //if (!KGYInputSystem.Instance.isShoot) return;
-
-            if (other.gameObject.layer == LayerMask.NameToLayer("TargetObj"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("CleanTarget"))
             {
                 if (other.transform.localScale.x > 0.05f)
                 {
