@@ -21,12 +21,10 @@ namespace KGY
 
         public void Interact()
         {
-            Debug.Log("Interact Start");
-            //if (currentInteractionItems.Count <= 0) return;
+            if (currentInteractionItems.Count <= 0) return;
 
-            ////TEST
-            //currentInteractionItems[0].Interact(this);
-            //currentInteractionItems.RemoveAt(0);
+            currentInteractionItems[0].Interact(this);
+            currentInteractionItems.RemoveAt(0);
         }
         private void OnDetectedInteraction(IInteractable interactable)
         {
