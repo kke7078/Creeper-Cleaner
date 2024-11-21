@@ -832,7 +832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f8a80c32898fbb42805dcfc6be0256f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3db8a72b4c3ad1a4197deb4fdba03229, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2781,7 +2781,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: 0c75845459d797a4f8fbe954a5179d0e, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
 --- !u!4 &977643409
 Transform:
   m_ObjectHideFlags: 0
@@ -2855,7 +2855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a346a28245c4d42499844cceb25c338e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edc5b3e0d6411c1448754eb21ef1a113, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3030,7 +3030,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: ff7e7f1cdee472942bfcd7185e17c86a, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
 --- !u!1 &1126621950
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,7 +5504,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4a7f27307ec193944af91a323c56ddd4, type: 2}
+  - {fileID: 2100000, guid: 6d3063f5c7af90b4799fe7f52bc5aa2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
