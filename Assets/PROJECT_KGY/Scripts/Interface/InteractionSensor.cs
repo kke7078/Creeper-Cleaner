@@ -11,7 +11,8 @@ namespace KGY
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.root.TryGetComponent(out IInteractable interactable))
+
+            if (other.transform.TryGetComponent(out IInteractable interactable))
             {
                 Debug.Log("OnDetected");
                 OnDetected?.Invoke(interactable);
@@ -20,7 +21,7 @@ namespace KGY
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.transform.root.TryGetComponent(out IInteractable interactable))
+            if (other.transform.TryGetComponent(out IInteractable interactable))
             {
                 Debug.Log("OnLostSignal");
                 OnLostSignal?.Invoke(interactable);

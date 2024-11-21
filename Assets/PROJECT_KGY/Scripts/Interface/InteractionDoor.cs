@@ -6,7 +6,13 @@ namespace KGY
 {
     public class InteractionDoor : MonoBehaviour, IInteractable
     {
-        public bool IsAutoInteract => false;
+        public bool IsAutoInteract {
+            get { return isAutoInteract; }
+            set { isAutoInteract = value; }
+        }
+        
+        public bool isAutoInteract = false;
+
         public string Message => "문 열기";
 
         public Transform targetDoor;
@@ -15,8 +21,6 @@ namespace KGY
 
         public void Interact(CharacterBase playerCharacter)
         {
-            Debug.Log("문이 열렸습니다!");
-
             if(!isOpened)
             {
                 isOpened = true;

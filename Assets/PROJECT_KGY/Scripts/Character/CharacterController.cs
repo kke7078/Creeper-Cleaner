@@ -53,6 +53,10 @@ namespace KGY
         {
             characterBase.Clean(isClean);
             IsCleaning = isClean;
+
+            int randomSound = UnityEngine.Random.Range(0, 2);
+            SoundType fireSoundType = randomSound == 0 ? SoundType.Fire_01 : SoundType.Fire_02;
+            //SoundSystem.Singleton.PlaySFX(fireSoundType, fireStartPoint.position); fireStartPoint.position : 효과음이 시작되어야 하는 위치값
         }
 
         private void Interact()
