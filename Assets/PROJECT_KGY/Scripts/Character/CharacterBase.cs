@@ -76,6 +76,13 @@ namespace KGY
 
             unityCharacterController.Move(targetDirection.normalized * moveSpeed * Time.deltaTime);
         }
+
+        public void Teleport(Vector3 position)
+        {
+            unityCharacterController.enabled = false;
+            transform.position = position;
+            unityCharacterController.enabled = true;
+        }
     }
 
 }

@@ -11,7 +11,8 @@ namespace KGY
         private static List<string> AutoBootStrapperScenes = new List<string>()
         {
             "MainScene",
-            "SampleScene",    // <= 자동으로 시스템이 부팅 되는 씬의 이름을 추가. [유니티 씬 파일이름]
+            "TitleScene",
+            "GameScene",    // <= 자동으로 시스템이 부팅 되는 씬의 이름을 추가. [유니티 씬 파일이름]
         };
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -42,6 +43,12 @@ namespace KGY
 
             // UI System 초기화
             UIManager.Singleton.Initialize();
+            
+            // GameData System 초기화
+            GameDataModel.Singleton.Initialize();
+
+            // UserData System 초기화
+            UserDataModel.Singleton.Initialize();
         }
     }
 }

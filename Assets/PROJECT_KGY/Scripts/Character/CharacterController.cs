@@ -28,6 +28,8 @@ namespace KGY
         {
             KGYInputSystem.Singleton.onClean += Clean;
             KGYInputSystem.Singleton.onInteract += Interact;
+
+            //characterBase.Teleport(UserDataModel.Singleton.PlayerSessionData.lastPosition);
         }
 
         private void Update()
@@ -46,6 +48,11 @@ namespace KGY
                     targetRot.eulerAngles = new Vector3(0, targetRot.eulerAngles.y, 0);
                     transform.rotation = targetRot;
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.F1))
+            { 
+                UserDataModel.Singleton.SetPlayerSessionData(characterBase.transform.position, 50, 20);
             }
         }
 
