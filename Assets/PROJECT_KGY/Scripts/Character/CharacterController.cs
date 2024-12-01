@@ -29,6 +29,7 @@ namespace KGY
             KGYInputSystem.Singleton.onClean += Clean;
             KGYInputSystem.Singleton.onInteract += Interact;
 
+            //마지막으로 저장된 캐릭터 위치값 : 나중에 사용할 것...
             //characterBase.Teleport(UserDataModel.Singleton.PlayerSessionData.lastPosition);
         }
 
