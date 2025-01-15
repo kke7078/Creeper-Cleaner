@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Schema;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -29,8 +32,31 @@ namespace KGY
             KGYInputSystem.Singleton.onClean += Clean;
             KGYInputSystem.Singleton.onInteract += Interact;
 
+            var playerCharacter = characterBase as PlayerCharacter;
+            playerCharacter.OnCleanerRoomEntered += OnCleanerRoomEnter;
+            playerCharacter.OnCleanerRoomExited += OnCleanerRoomExit;
+
             //마지막으로 저장된 캐릭터 위치값 : 나중에 사용할 것...
             //characterBase.Teleport(UserDataModel.Singleton.PlayerSessionData.lastPosition);
+        }
+
+        private void OnCleanerRoomEnter(CleanerRoom roomData)
+        {
+            //청소가 완성된 상태라면 return
+            if (roomData.isComplete) return;
+
+            //청소상태 업데이트
+            Interaction_UI.Instance.PlaceName = roomData.roomName;
+            Interaction_UI.Instance.DirtyTotalCount = roomData.DIrtyTotalCount;
+            Interaction_UI.Instance.DirtyCleanCount = roomData.DirtyCleanCount;
+
+            Interaction_UI.Instance.IsShow = true;
+        }
+
+        private void OnCleanerRoomExit()
+        {
+            Interaction_UI.Instance.IsShow = false;
+            Interaction_UI.Instance.DirtyCleanCount = 0;
         }
 
         private void Update()
@@ -51,6 +77,7 @@ namespace KGY
                 }
             }
 
+            //캐릭터 위치값 저장
             if (Input.GetKeyDown(KeyCode.F1))
             { 
                 UserDataModel.Singleton.SetPlayerSessionData(characterBase.transform.position, 50, 20);

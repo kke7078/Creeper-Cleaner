@@ -68,12 +68,12 @@ namespace KGY
             if (string.IsNullOrEmpty(savedData))
             {
                 data = default(T);
-                Debug.Log($"Load Failed - Default Data <{typeof(T).Name}>");
+                //Debug.Log($"Load Failed - Default Data <{typeof(T).Name}>");
                 return false;
             }
 
             data = JsonUtility.FromJson<T>(savedData);
-            Debug.Log($"Load Success - Saved Data <{typeof(T).Name}> : {savedData}");
+            //Debug.Log($"Load Success - Saved Data <{typeof(T).Name}> : {savedData}");
 
             return true;
         }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace KGY
@@ -14,7 +16,7 @@ namespace KGY
 
             if (other.transform.TryGetComponent(out IInteractable interactable))
             {
-                Debug.Log("OnDetected");
+                //Debug.Log("OnDetected");
                 OnDetected?.Invoke(interactable);
             }
         }
@@ -23,7 +25,7 @@ namespace KGY
         {
             if (other.transform.TryGetComponent(out IInteractable interactable))
             {
-                Debug.Log("OnLostSignal");
+                //Debug.Log("OnLostSignal");
                 OnLostSignal?.Invoke(interactable);
             }
         }

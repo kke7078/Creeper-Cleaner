@@ -49,7 +49,7 @@ namespace KGY
                 return false;
             }
 
-            Debug.Log(dataAsset.text);
+            //Debug.Log(dataAsset.text);
             data = JsonUtility.FromJson<T>(dataAsset.text);
             return true;
         }

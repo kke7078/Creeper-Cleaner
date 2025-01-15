@@ -34,7 +34,20 @@ namespace KGY
 
         private void Update()
         {
-            
+            Ray wallCheckRay = new Ray(transform.position, transform.forward);
+            RaycastHit checkRayHitInfo;
+
+            if (Physics.Raycast(wallCheckRay, out checkRayHitInfo, 1f))
+            {
+                Debug.Log(checkRayHitInfo.collider.name);
+            }
+            else
+            {
+                Debug.Log("타겟 없음");
+            }
+
+            //레이 시각화
+            Debug.DrawRay(wallCheckRay.origin, wallCheckRay.direction * 1f, Color.red);
         }
 
         public virtual void Clean(bool isClean)
